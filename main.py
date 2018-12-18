@@ -2,8 +2,6 @@
 from simcard_controller import SimCardController
 from human_controller import HumanController
 from database_migrations import DatabaseMigration
-from test import Myclass, Bar
-from test_db import men
 
 databaseMigration = DatabaseMigration()
 
@@ -21,17 +19,10 @@ def run_simcards():
     simcardcontroller.update_simcard()
     simcardcontroller.delete_simcard()
 
-
-# add human
-
-
-
-
-
 if __name__ == "__main__":
     databaseMigration.create_db_tables()
     databaseMigration.add_profession_column()
     databaseMigration.add_nationality_column()
     databaseMigration.change_phone_datatype()
-    # run_humans()
-    # run_simcards()
+    run_humans()
+    run_simcards()
