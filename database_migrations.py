@@ -94,3 +94,20 @@ class DatabaseMigration:
         sql_query = f"""DELETE FROM simcards WHERE simcard_id = '{simcard_id}''"""
         self.cursor_db.execute(sql_query)
         return {"message": "Success"}
+
+if __name__ =="__main__":
+
+    dataBase = DatabaseMigration()
+    dataBase.create_db_tables()
+    dataBase.change_phone_datatype()
+    dataBase.add_profession_column()
+    dataBase.add_nationality_column()
+
+    dataBase.create_human("Edward", "Bolongatiya", 34, "MARRIED")
+    dataBase.create_simcard(1,775961853, 7483738, "mtn", True, 1)
+    dataBase.get_human(1)
+    dataBase.get_simcard(1)
+    dataBase.update_human(1,"Lamech", "bolon", 99, "married")
+    dataBase.update_simcard(1,1,701000000, 7483738, "warid", False, 1)
+    dataBase.delete_human(1)
+    dataBase.delete_simcard(1)
